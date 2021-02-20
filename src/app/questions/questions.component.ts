@@ -16,9 +16,12 @@ export class QuestionsComponent implements OnInit {
   }
 
   onClear(){
+    console.log("clear works");
    // this.slForm.reset();
   }
 
-  onSubmit(f : NgForm){}
+  onSubmit(f : NgForm){
+    console.log("submit works");
+  }
 
 }
