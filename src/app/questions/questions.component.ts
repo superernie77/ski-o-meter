@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-questions',
@@ -8,20 +8,28 @@ import { NgForm } from '@angular/forms';
 })
 export class QuestionsComponent implements OnInit {
 
-  //@ViewChild('f') slForm : NgForm;
+  weatherOptions = ["","Schönster Sonnenschein","Bedeckt und wolkig","Es soll regnen", "Es soll schneien"];
+
+  typeOptions = ["","Pistentour","fahren im Gelände"];
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onClear(){
+  onClear(f : NgForm){
     console.log("clear works");
-   // this.slForm.reset();
+    f.reset();
   }
 
   onSubmit(f : NgForm){
-    console.log("submit works");
+    const value = f.value;
+    console.log("Schnee: "+value.schnee);
+    console.log("Wetter: "+value.wetter);
+    console.log("Temperatur: "+value.temperatur);
+    console.log("Schnee im Tal: "+value.schnee_tal);
+    console.log("Schnee am Berg: "+value.schnee_berg);
+    console.log("Art der Tour am Berg: "+value.tourenart);
   }
 
 }
