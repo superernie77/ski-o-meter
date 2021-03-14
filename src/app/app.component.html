@@ -4,9 +4,9 @@
 
     <h1>SKI-O-METER</h1>
 
-    <app-questions></app-questions>
+    <app-questions *ngIf="!calcCompleted" ></app-questions>
 
-    <app-result></app-result>
+    <app-result *ngIf="calcCompleted" ></app-result>
 
     </div>
   </div>
