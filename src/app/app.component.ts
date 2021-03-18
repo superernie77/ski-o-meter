@@ -9,7 +9,7 @@ import { CalculationService } from './shared/calculation.service';
 export class AppComponent implements OnInit {
   title = 'ski-o-meter';
 
-  calcCompleted : boolean = true;
+  calcCompleted : boolean = false;
 
   constructor(private calculationService : CalculationService) { }
 
