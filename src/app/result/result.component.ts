@@ -18,4 +18,7 @@ export class ResultComponent {
     return this.calculationService.currentCalculation.points;
   }
 
+  getResult(){
+    return this.calculationService.currentCalculation;
+  }
 }
