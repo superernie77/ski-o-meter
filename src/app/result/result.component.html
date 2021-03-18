@@ -1,4 +1,39 @@
-<p>result works!</p>
-<p><button type="button" (click)="reset()">Reset</button></p>
-<p>Points:</p>
-<p>{{getPoints()}}</p>
+<div class="row">
+  <div class="col-xs-5">
+    <div class="alert alert-success" role="alert">
+      <strong>Punkte: {{ getPoints() }}</strong>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-5">
+    <div class="alert alert-info" role="alert">
+      <p><strong>Deine Eingaben waren:</strong></p>
+      <p>
+        <strong>Neuschnee: {{ getResult().schnee }} cm</strong>
+      </p>
+      <p>
+        <strong>Wetter: {{ getResult().wetter }}</strong>
+      </p>
+      <p>
+        <strong>Tageshöchsttemperatur: {{ getResult().temperatur }} °C</strong>
+      </p>
+      <p>
+        <strong>Schneehöhe Tal:{{ getResult().schnee_tal }} cm</strong>
+      </p>
+      <p>
+        <strong>Schneehöhe Berg: {{ getResult().schnee_berg }} cm</strong>
+      </p>
+      <p>
+        <strong>Art der Tour: {{ getResult().tourenart }}</strong>
+      </p>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-5">
+    <button class="btn btn-success" type="button" (click)="reset()">
+      Nochmal !
+    </button>
+  </div>
+</div>
