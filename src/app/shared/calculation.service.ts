@@ -17,49 +17,56 @@ export class CalculationService {
 
         // Punkte für Neuschnee
         var schnee = this.currentCalculation.schnee;
-        if (schnee > 10) {
+        if (schnee >= 10) {
           points += 1;
+          console.log("Schnee/10 +1. Punkte: "+points);
         }
-        if (schnee > 20) {
+        if (schnee >= 20) {
           points += 1;
+          console.log("Schnee/20 +1. Punkte: "+points);
         }
 
         // Punkte für Wetter
         var wetter = this.currentCalculation.wetter;
         if (wetter == "Schönster Sonnenschein") {
-          points += 1;
-        } else if (wetter == "Es soll regnen"){
-          points -= 1;
+          points += 2;
+          console.log("Wetter/Sonne +2. Punkte: "+points);
         } else if (wetter ==  "Es soll schneien"){
           points += 1;
+          console.log("Wetter/Schnee +1. Punkte: "+points);
         }
 
         // Punkte für Temperatur
         var temp = this.currentCalculation.temperatur;
         if (temp < 0) {
           points += 1;
+          console.log("Temperatur +1. Punkte: "+points);
         }
 
         // Punkte Schneemenge Tal
         var schneeTal = this.currentCalculation.schnee_tal;
         if (schneeTal >= 20 ) {
           points += 1;
+          console.log("Schnee/Tal +1. Punkte: "+points);
         }
 
         // Punkte Schneemenge Berg
         var schneeBerg = this.currentCalculation.schnee_berg;
         if (schneeTal >= 50 ) {
           points += 1;
+          console.log("Schnee/Berg +1. Punkte: "+points);
         }
 
         // Punkte Tourenart
         var type = this.currentCalculation.tourenart;
         if (type == "Pistentour"){
           points += 1;
+          console.log("Pistentour +1. Punkte: "+points);
         }
     }
     this.currentCalculation.points = points;
     this.calculationReadey.emit(true);
+    console.log("Punkte gesamt: "+points);
     return points;
   }
 }

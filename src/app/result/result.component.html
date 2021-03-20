@@ -1,7 +1,16 @@
 <div class="row">
   <div class="col-xs-5">
-    <div class="alert alert-success" role="alert">
-      <strong>Punkte: {{ getPoints() }}</strong>
+    <div class="alert alert-success" *ngIf="getPoints() >= 5" role="alert">
+      <strong>{{ getPoints() }} von 8 Punkten</strong>
+      <p>Du sitzt noch vor dem Rechner? Pack die Ski ein und fahr los!</p>
+    </div>
+    <div class="alert alert-warning" *ngIf="getPoints() < 5 && getPoints() > 3" role="alert">
+      <strong>{{ getPoints() }} von 8 Punkten</strong>
+      <p>Der Skitag könnte ganz ok werden.</p>
+    </div>
+    <div class="alert alert-danger" *ngIf="getPoints() <= 3" role="alert">
+      <strong>{{ getPoints() }} von 8 Punkten</strong>
+      <p>Verbring den Tag doch besser auf der Couch.</p>
     </div>
   </div>
 </div>
@@ -19,7 +28,7 @@
         <strong>Tageshöchsttemperatur: {{ getResult().temperatur }} °C</strong>
       </p>
       <p>
-        <strong>Schneehöhe Tal:{{ getResult().schnee_tal }} cm</strong>
+        <strong>Schneehöhe Tal: {{ getResult().schnee_tal }} cm</strong>
       </p>
       <p>
         <strong>Schneehöhe Berg: {{ getResult().schnee_berg }} cm</strong>
